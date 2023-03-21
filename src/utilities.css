@@ -1,0 +1,34 @@
+@font-face {
+  font-family: atk;
+  src: url("./assets/fonts/AtkinsonHyperlegible-Bold.ttf");
+}
+
+.h1 {
+  font-family: atk;
+  font-size: 48px;
+}
+
+.h2 {
+  font-family: atk;
+  font-size: 32px;
+}
+
+.h3 {
+  font-family: atk;
+  font-size: 20px;
+}
+
+.body {
+  font-family: atk;
+  font-size: 18px;
+}
+
+.number-6x6 {
+  font-family: atk;
+  font-size: 44px;
+}
+
+.number-4x4 {
+  font-family: atk;
+  font-size: 56px;
+}
