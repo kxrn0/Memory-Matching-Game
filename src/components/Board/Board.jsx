@@ -51,7 +51,6 @@ function BoardComponent({ settings, update_score }) {
 
   return (
     <SCBoard style={{ "--length": settings.size }}>
-      {/* <button onClick={() => console.log(state)}>STATE</button> */}
       {state.map((item, index) => (
         <span
           key={index}
@@ -63,7 +62,7 @@ function BoardComponent({ settings, update_score }) {
             flipped={item.flipped}
             front={null}
             back={
-              settings.theme === "number" ? (
+              settings.theme === "numbers" ? (
                 item.value
               ) : (
                 <FontAwesomeIcon icon={item.value.icon} />
@@ -79,7 +78,7 @@ function BoardComponent({ settings, update_score }) {
 export default function Board({ settings, update_score }) {
   return (
     <BoardComponent
-      key={settings.size}
+      key={JSON.stringify(settings)}
       settings={settings}
       update_score={update_score}
     />

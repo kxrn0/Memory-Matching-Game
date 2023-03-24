@@ -22,14 +22,20 @@ export default function Game() {
   const timeRef = useRef(null);
 
   function set_state(number) {
-    // const number = Number(settings.number);
+    console.log(`number: ${number}`);
+
+    const state = { gameOver: false };
 
     if (number > 1) {
       const players = new Array(number);
 
-      players.fill(0);
-      return { players, turn: 0 };
-    } else return { moves: 0, time: 0 };
+      state.players = players.fill(0);
+      state.turn = 0;
+    } else {
+      state.moves = 0;
+      state.time = 0;
+    }
+    return state;
   }
 
   function set_settings(newSettings) {
@@ -50,13 +56,14 @@ export default function Game() {
         players: prevState.players.map(
           (score, index) => score + (index === prevState.turn) * result.match
         ),
-        turn: (prevState.turn + 1) % 4,
+        turn: (prevState.turn + 1) % prevState.players.length,
       }));
 
     if (result.cellsLeft === 1) {
       clearTimeout(timeRef.current);
       console.log("game over");
       console.log(gameState);
+      setGameState((prevState) => ({ ...prevState, gameOver: true }));
     }
   }
 
@@ -77,18 +84,24 @@ export default function Game() {
         setGameState((prevState) => ({ ...prevState, time: 0 }));
       };
     }
+    setGameState(set_state(Number(gameSettings.number)));
   }, [gameSettings]);
 
   return (
     <SCGame>
       <button onClick={() => console.log(gameState)}>state</button>
-      <Dialog shown={isInit}>
-        <Start initialSettings={gameSettings} setSettings={set_settings} />
+      <button onClick={() => console.log(gameSettings)}>Settings</button>
+      <Dialog shown={isInit || gameState?.gameOver}>
+        {gameState?.gameOver ? (
+          <p>{JSON.stringify(gameState)}</p>
+        ) : (
+          <Start initialSettings={gameSettings} setSettings={set_settings} />
+        )}
       </Dialog>
       <p>{JSON.stringify(gameSettings)}</p>
       <Navbar />
       <Board settings={gameSettings} update_score={update_score} />
-      <Score />
+      <Score score={gameState} />
     </SCGame>
   );
 }
