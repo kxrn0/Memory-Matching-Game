@@ -8,9 +8,24 @@ const SCDialog = styled.div`
   z-index: 2;
 
   .backdrop {
-    background: #0a0c1c80;
+    /* &.tinted {
+      background: var(--pseudo-black);
+    }
+
+    &.transparent {
+      background: #0000007f;
+    } */
+
     position: absolute;
     inset: 0;
+  }
+
+  .backdrop.tinted {
+    background: var(--pseudo-black);
+  }
+
+  .backdrop.transparent {
+    background: #0000007f;
   }
 
   .container {

@@ -4,6 +4,7 @@ import Start from "../Start/Start";
 import Navbar from "../Navbar/Navbar";
 import Board from "../Board/Board";
 import Score from "../Score/Score";
+import End from "../End/End";
 import { useState, useEffect, useRef } from "react";
 
 export default function Game() {
@@ -20,6 +21,7 @@ export default function Game() {
   });
   const [gameState, setGameState] = useState(null);
   const timeRef = useRef(null);
+  const instanceRef = useRef(1);
 
   function set_state(number) {
     console.log(`number: ${number}`);
@@ -61,20 +63,33 @@ export default function Game() {
 
     if (result.cellsLeft === 1) {
       clearTimeout(timeRef.current);
-      console.log("game over");
-      console.log(gameState);
       setGameState((prevState) => ({ ...prevState, gameOver: true }));
     }
+  }
+
+  function restart() {
+    setGameState(set_state(Number(gameSettings.number)));
+    instanceRef.current = instanceRef.current + 1;
+  }
+
+  function new_game() {
+    setGameState((prevState) => ({ ...prevState, gameOver: false }));
+    instanceRef.current = instanceRef.current + 1;
+    setIsInit(true);
   }
 
   useEffect(() => {
     if (Number(gameSettings.number) === 1) {
       const id = setInterval(() => {
         console.log(`in timer ${Math.random()}`);
-        setGameState((prevState) => ({
-          ...prevState,
-          time: prevState.time + 1,
-        }));
+        setGameState((prevState) =>
+          prevState
+            ? {
+                ...prevState,
+                time: prevState.time + 1,
+              }
+            : { moves: 0, time: 0 }
+        );
       }, 1000);
 
       timeRef.current = id;
@@ -85,22 +100,26 @@ export default function Game() {
       };
     }
     setGameState(set_state(Number(gameSettings.number)));
-  }, [gameSettings]);
+  }, [instanceRef.current, gameSettings]);
 
   return (
     <SCGame>
-      <button onClick={() => console.log(gameState)}>state</button>
-      <button onClick={() => console.log(gameSettings)}>Settings</button>
-      <Dialog shown={isInit || gameState?.gameOver}>
+      <Dialog
+        shown={isInit || gameState?.gameOver}
+        tint={isInit ? true : false}
+      >
         {gameState?.gameOver ? (
-          <p>{JSON.stringify(gameState)}</p>
+          <End state={gameState} newGame={new_game} restart={restart} />
         ) : (
           <Start initialSettings={gameSettings} setSettings={set_settings} />
         )}
       </Dialog>
-      <p>{JSON.stringify(gameSettings)}</p>
-      <Navbar />
-      <Board settings={gameSettings} update_score={update_score} />
+      <Navbar newGame={new_game} restart={restart} />
+      <Board
+        settings={gameSettings}
+        update_score={update_score}
+        key={instanceRef.current}
+      />
       <Score score={gameState} />
     </SCGame>
   );

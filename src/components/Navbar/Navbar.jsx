@@ -1,10 +1,10 @@
 import SCNavbar from "./Navbar.styled";
 
-export default function Navbar({ new_game, restart_game }) {
+export default function Navbar({ newGame, restart }) {
   return (
     <SCNavbar>
-      <button onClick={restart_game}>Restart</button>
-      <button onClick={new_game}>New Game</button>
+      <button onClick={restart}>Restart</button>
+      <button onClick={newGame}>New Game</button>
     </SCNavbar>
   );
 }

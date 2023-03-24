@@ -29,7 +29,7 @@ const SCFlipper = styled.div`
 
     .back {
       background: pink;
-      /* transform: rotateY(180deg); */
+      transform: rotateY(180deg);
     }
   }
 

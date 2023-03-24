@@ -3,6 +3,19 @@
   src: url("./assets/fonts/AtkinsonHyperlegible-Bold.ttf");
 }
 
+:root {
+  --orange: #fda214;
+  --orang: #ffb84a;
+  --gray: #bcced9;
+  --dark-blue-gray: #304859;
+  --pseudo-black: #152938;
+  --light-gray: #f2f2f2;
+  --blue: #7191a5;
+  --light-blue: #6395b8;
+  --white: #fcfcfc;
+  --dark-white: #dfe7ec;
+}
+
 .h1 {
   font-family: atk;
   font-size: 48px;
@@ -11,11 +24,13 @@
 .h2 {
   font-family: atk;
   font-size: 32px;
+  line-height: 37px;
 }
 
 .h3 {
   font-family: atk;
   font-size: 20px;
+  line-height: 24px;
 }
 
 .body {
