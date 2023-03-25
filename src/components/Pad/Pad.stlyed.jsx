@@ -35,7 +35,7 @@ const SCPad = styled.div`
   ::before {
     content: "";
     position: absolute;
-    bottom: 100%;
+    bottom: calc(100% - 1px);
     right: 50%;
     transform: translateX(50%);
     width: 0;
@@ -62,6 +62,32 @@ const SCPad = styled.div`
     ::before {
       opacity: 1;
     }
+  }
+
+  @media screen and (max-width: 1000px) {
+    width: 165px;
+    height: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    padding: 14px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+
+    ::before {
+      border-left-width: 12px;
+      border-right-width: 12px;
+      border-bottom-width: 12px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    width: auto;
+    flex-grow: 1;
+    /* width: 64px; */
+    height: 70px;
+    padding: 10px 15px;
+    align-items: center;
   }
 `;
 

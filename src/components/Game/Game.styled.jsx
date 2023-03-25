@@ -5,7 +5,14 @@ const SCGame = styled.main`
   flex-direction: column;
   align-items: center;
   gap: 105px;
-  /* width: 100%; */
+
+  @media screen and (max-width: 1000px) {
+    gap: 150px;
+  }
+
+  @media screen and (max-width: 500px) {
+    gap: 80px;
+  }
 `;
 
 export default SCGame;

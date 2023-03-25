@@ -10,6 +10,12 @@ const SCNavbar = styled.nav`
     display: flex;
     gap: 16px;
   }
+
+  @media screen and (max-width: 500px) {
+    svg {
+      transform: scale(.6);
+    }
+  }
 `;
 
 export default SCNavbar;

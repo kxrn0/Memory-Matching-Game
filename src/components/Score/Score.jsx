@@ -2,7 +2,6 @@ import Pad from "../Pad/Pad";
 import SCScore from "./Score.styled";
 
 export default function Score({ score }) {
-  console.log(score);
   return (
     <SCScore>
       {score ? (
@@ -16,11 +15,13 @@ export default function Score({ score }) {
             </li>
           </ul>
         ) : (
-          <ul style={{ padding: "2rem" }}>
+          <ul>
             {score.players.map((player, index) => (
               <li key={index}>
                 <Pad
-                  label={`Player ${index + 1}`}
+                  label={`${window.innerWidth <= 500 ? "P" : "Player "}${
+                    index + 1
+                  }`}
                   turn={score.turn === index}
                   value={player}
                 />

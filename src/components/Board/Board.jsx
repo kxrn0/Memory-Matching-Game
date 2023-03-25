@@ -49,15 +49,37 @@ function BoardComponent({ settings, update_score }) {
     } else setFirst({ id, index });
   }
 
+  const styles = (() => {
+    const style = {};
+
+    style["--length"] = settings.size;
+
+    if (window.innerWidth <= 500) {
+      if (settings.size === "4") {
+        style["--gap"] = "13px";
+        style["--width"] = "73px";
+        style["--size"] = "40px";
+      } else {
+        style["--gap"] = "9px";
+        style["--width"] = "47px";
+        style["--size"] = "24px";
+      }
+    } else {
+      if (settings.size === "4") {
+        style["--gap"] = "20px";
+        style["--width"] = "118px";
+        style["--size"] = "56px";
+      } else {
+        style["--gap"] = "16px";
+        style["width"] = "82px";
+        style["--size"] = "44px";
+      }
+    }
+    return style;
+  })();
+
   return (
-    <SCBoard
-      style={{
-        "--length": settings.size,
-        "--gap": settings.size === "4" ? "20px" : "16px",
-        "--width": settings.size === "4" ? "118px" : "82px",
-        "--size": settings.size === "4" ? "56px" : "44px",
-      }}
-    >
+    <SCBoard style={styles}>
       {state.map((item, index) => (
         <span
           key={index}

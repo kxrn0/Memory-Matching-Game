@@ -8,7 +8,7 @@ const SCFlipper = styled.div`
     position: relative;
     width: var(--width);
     height: var(--width);
-    transition: transform .33s;
+    transition: transform 0.33s;
     transform-style: preserve-3d;
 
     .front,
@@ -32,6 +32,10 @@ const SCFlipper = styled.div`
       font-family: atk;
       line-height: 70px;
       /* transform: rotateY(180deg); */
+
+      @media screen and (max-width: 500px) {
+        line-height: 0;
+      }
     }
   }
 

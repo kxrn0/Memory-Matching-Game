@@ -16,6 +16,10 @@ const SCStart = styled.form`
         fill: #ff2525;
       }
     }
+
+    @media screen and (max-width: 500px) {
+      transform: scale(0.8);
+    }
   }
 
   section {
@@ -41,9 +45,6 @@ const SCStart = styled.form`
         li {
           background: var(--gray);
           color: var(--white);
-          font-family: atk;
-          font-size: 26px;
-          line-height: 32px;
           text-transform: capitalize;
           transition: background-color 0.33s;
           border-radius: 100px;
@@ -83,11 +84,19 @@ const SCStart = styled.form`
             }
           }
         }
+
+        @media screen and (max-width: 500px) {
+          gap: 10px;
+        }
       }
 
       :nth-child(2) {
         ul {
           gap: 20px;
+
+          @media screen and (max-width: 500px) {
+            gap: 10px;
+          }
         }
       }
     }
@@ -106,6 +115,16 @@ const SCStart = styled.form`
         }
       }
     }
+
+    @media screen and (max-width: 500px) {
+      width: 330px;
+      padding: 24px;
+      border-radius: 10px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    gap: 45px;
   }
 `;
 

@@ -34,7 +34,7 @@ export default function Start({ initialSettings, setSettings }) {
                     checked={currentTheme === theme}
                     onChange={(event) => setTheme(event.target.value)}
                   />
-                  <span>{currentTheme}</span>
+                  <span className="prm">{currentTheme}</span>
                 </label>
               </li>
             ))}
@@ -54,7 +54,7 @@ export default function Start({ initialSettings, setSettings }) {
                     checked={currentNumber === number}
                     onChange={(event) => setNumber(event.target.value)}
                   />
-                  <span>{currentNumber}</span>
+                  <span className="prm">{currentNumber}</span>
                 </label>
               </li>
             ))}
@@ -74,7 +74,7 @@ export default function Start({ initialSettings, setSettings }) {
                     checked={currentSize === size}
                     onChange={(event) => setSize(event.target.value)}
                   />
-                  <span>{currentSize}</span>
+                  <span className="prm">{`${currentSize}x${currentSize}`}</span>
                 </label>
               </li>
             ))}
