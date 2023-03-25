@@ -2,17 +2,14 @@ import styled from "styled-components";
 
 const SCFlipper = styled.div`
   background: transparent;
-  width: 82px;
-  height: 82px;
   perspective: 1000px;
 
   .content {
     position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
+    width: var(--width);
+    height: var(--width);
+    transition: transform .33s;
     transform-style: preserve-3d;
-    box-shadow: 5px 5px 10px 5px purple;
 
     .front,
     .back {
@@ -21,15 +18,20 @@ const SCFlipper = styled.div`
       backface-visibility: hidden;
       display: grid;
       place-items: center;
+      border-radius: 100%;
     }
 
     .front {
-      background: greenyellow;
+      background: var(--dark-blue-gray);
     }
 
     .back {
-      background: pink;
-      transform: rotateY(180deg);
+      background: var(--gray);
+      color: var(--white);
+      font-size: var(--size);
+      font-family: atk;
+      line-height: 70px;
+      /* transform: rotateY(180deg); */
     }
   }
 

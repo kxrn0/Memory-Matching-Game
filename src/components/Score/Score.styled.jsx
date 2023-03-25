@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 const SCScore = styled.section`
-  background: green;
+  ul {
+    display: flex;
+    gap: 30px;
+  }
 `;
 
 export default SCScore;

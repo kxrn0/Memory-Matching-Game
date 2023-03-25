@@ -47,3 +47,30 @@
   font-family: atk;
   font-size: 56px;
 }
+
+.primary-button,
+.secondary-button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 100px;
+  transition: background-color 0.33s, color 0.33s;
+}
+
+.primary-button {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.primary-button:hover {
+  background: var(--orang);
+}
+
+.secondary-button {
+  background: var(--dark-white);
+  color: var(--dark-blue-gray);
+}
+
+.secondary-button:hover {
+  background: var(--light-blue);
+  color: var(--white);
+}

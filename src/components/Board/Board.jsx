@@ -50,7 +50,14 @@ function BoardComponent({ settings, update_score }) {
   }
 
   return (
-    <SCBoard style={{ "--length": settings.size }}>
+    <SCBoard
+      style={{
+        "--length": settings.size,
+        "--gap": settings.size === "4" ? "20px" : "16px",
+        "--width": settings.size === "4" ? "118px" : "82px",
+        "--size": settings.size === "4" ? "56px" : "44px",
+      }}
+    >
       {state.map((item, index) => (
         <span
           key={index}

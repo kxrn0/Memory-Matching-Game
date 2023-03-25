@@ -1,10 +1,11 @@
 import SCPad from "./Pad.stlyed";
 
-export default function Pad({ label, value }) {
+export default function Pad({ label, value, turn }) {
   return (
-    <SCPad>
-      <span className="label">{label}</span>
-      <h3 className="value">{value}</h3>
+    <SCPad className={turn ? "turn" : ""}>
+      <span className="body">{label}</span>
+      <h3 className="h2">{value}</h3>
+      <p className="label">CURRENT TURN</p>
     </SCPad>
   );
 }

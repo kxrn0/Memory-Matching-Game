@@ -19,15 +19,18 @@ export default function Score({ score }) {
           <ul style={{ padding: "2rem" }}>
             {score.players.map((player, index) => (
               <li key={index}>
-                {score.turn === index ? (
-                  <p style={{ background: "red" }}>turn</p>
-                ) : null}
-                <Pad label={`Player ${index + 1}`} value={player} />
+                <Pad
+                  label={`Player ${index + 1}`}
+                  turn={score.turn === index}
+                  value={player}
+                />
               </li>
             ))}
           </ul>
         )
-      ) : <p>no score...</p> }
+      ) : (
+        <p>no score...</p>
+      )}
     </SCScore>
   );
 }

@@ -24,8 +24,6 @@ export default function Game() {
   const instanceRef = useRef(1);
 
   function set_state(number) {
-    console.log(`number: ${number}`);
-
     const state = { gameOver: false };
 
     if (number > 1) {
