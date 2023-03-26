@@ -31,7 +31,7 @@ const SCFlipper = styled.div`
       font-size: var(--size);
       font-family: atk;
       line-height: 70px;
-      /* transform: rotateY(180deg); */
+      transform: rotateY(180deg);
 
       @media screen and (max-width: 500px) {
         line-height: 0;
