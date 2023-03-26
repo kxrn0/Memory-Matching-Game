@@ -12,7 +12,7 @@ const options = {
     background_color: "#f69434",
     display: "standalone",
     scope: "/Memory-Matching-Game/",
-    start_url: "/Memory-Matching-Game",
+    start_url: "/Memory-Matching-Game/",
     short_name: "memory tiles",
     description: "Memory tiles app",
     name: "Memory Tiles",
