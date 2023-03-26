@@ -12,8 +12,12 @@ const SCNavbar = styled.nav`
   }
 
   @media screen and (max-width: 500px) {
+    .controls {
+      display: none;
+    }
+
     svg {
-      transform: scale(.6);
+      transform: scale(0.6);
     }
   }
 `;

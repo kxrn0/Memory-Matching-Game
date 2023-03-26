@@ -33,7 +33,7 @@ export default function End({ state, newGame, restart }) {
           <p className="body title">Game over! Here's how you got on...</p>
           <ul>
             <li>
-              <p className="body">Time Elapsed...</p>
+              <p className="body">Time Elapsed</p>
               <h2 className="h2">{time}</h2>
             </li>
             <li>

@@ -5,7 +5,7 @@ export default function Pad({ label, value, turn }) {
     <SCPad className={turn ? "turn" : ""}>
       <span className="body">{label}</span>
       <h3 className="h2">{value}</h3>
-      <p className="label">CURRENT TURN</p>
+      {window.innerWidth >= 500 ? <p className="label">CURRENT TURN</p> : null}
     </SCPad>
   );
 }

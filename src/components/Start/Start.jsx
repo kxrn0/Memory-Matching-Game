@@ -65,10 +65,10 @@ export default function Start({ initialSettings, setSettings }) {
           <ul>
             {sizes.map((currentSize) => (
               <li key={currentSize}>
-                <label htmlFor={currentSize}>
+                <label htmlFor={`size-${currentSize}`}>
                   <input
                     type="radio"
-                    id={currentSize}
+                    id={`size-${currentSize}`}
                     name="sizes"
                     value={currentSize}
                     checked={currentSize === size}

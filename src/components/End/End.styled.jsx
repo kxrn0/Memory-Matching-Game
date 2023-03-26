@@ -26,6 +26,11 @@ const SCEnd = styled.div`
   .body.title {
     margin-top: 16px;
     margin-bottom: 40px;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 10px;
+      margin-bottom: 24px;
+    }
   }
 
   ul {
@@ -50,6 +55,11 @@ const SCEnd = styled.div`
           color: var(--white);
         }
       }
+
+      @media screen and (max-width: 500px) {
+        width: 280px;
+        padding: 16px;
+      }
     }
   }
 
@@ -61,6 +71,17 @@ const SCEnd = styled.div`
     button {
       flex: 1 1 0;
     }
+
+    @media screen and (max-width: 500px) {
+      margin-top: 24px;
+      flex-direction: column;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    padding: 24px;
+    padding-top: 32px;
+    border-radius: 10px;
   }
 `;
 
