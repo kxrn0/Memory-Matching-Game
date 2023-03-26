@@ -83,7 +83,6 @@ export default function Game() {
   useEffect(() => {
     if (Number(gameSettings.number) === 1) {
       const id = setInterval(() => {
-        console.log(`in timer ${Math.random()}`);
         setGameState((prevState) =>
           prevState
             ? {
