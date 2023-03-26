@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Board from "../Board/Board";
 import Score from "../Score/Score";
 import End from "../End/End";
+import Options from "../Options/Options";
 import { useState, useEffect, useRef } from "react";
 
 export default function Game() {
@@ -19,6 +20,7 @@ export default function Game() {
 
     return settings;
   });
+  const [showOptions, setShowOptions] = useState(false);
   const [gameState, setGameState] = useState(null);
   const timeRef = useRef(null);
   const instanceRef = useRef(1);
@@ -68,12 +70,14 @@ export default function Game() {
   function restart() {
     setGameState(set_state(Number(gameSettings.number)));
     instanceRef.current = instanceRef.current + 1;
+    setShowOptions(false);
   }
 
   function new_game() {
     setGameState((prevState) => ({ ...prevState, gameOver: false }));
     instanceRef.current = instanceRef.current + 1;
     setIsInit(true);
+    setShowOptions(false);
   }
 
   useEffect(() => {
@@ -103,16 +107,26 @@ export default function Game() {
   return (
     <SCGame>
       <Dialog
-        shown={isInit || gameState?.gameOver}
+        shown={isInit || gameState?.gameOver || showOptions}
         tint={isInit ? true : false}
       >
-        {gameState?.gameOver ? (
-          <End state={gameState} newGame={new_game} restart={restart} />
-        ) : (
+        {isInit ? (
           <Start initialSettings={gameSettings} setSettings={set_settings} />
+        ) : showOptions ? (
+          <Options
+            new_game={new_game}
+            restart={restart}
+            close={() => setShowOptions(false)}
+          />
+        ) : (
+          <End state={gameState} newGame={new_game} restart={restart} />
         )}
       </Dialog>
-      <Navbar newGame={new_game} restart={restart} />
+      <Navbar
+        newGame={new_game}
+        restart={restart}
+        open_options={() => setShowOptions(true)}
+      />
       <Board
         settings={gameSettings}
         update_score={update_score}

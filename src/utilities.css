@@ -46,7 +46,7 @@
 
 .primary-button,
 .secondary-button {
-  padding: 15px 20px;
+  padding: 15px 30px;
   border: none;
   border-radius: 100px;
   transition: background-color 0.33s, color 0.33s;
@@ -57,18 +57,24 @@
   color: var(--white);
 }
 
-.primary-button:hover {
-  background: var(--orang);
-}
-
 .secondary-button {
   background: var(--dark-white);
   color: var(--dark-blue-gray);
 }
 
-.secondary-button:hover {
+.primary-button:active {
+  background: var(--orang);
+}
+
+.secondary-button:active {
   background: var(--light-blue);
   color: var(--white);
+}
+
+@media (hover: hover) {
+  .primary-button:hover {
+    background: var(--orang);
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -102,5 +108,10 @@
   .h3 {
     font-size: 15px;
     line-height: 18px;
+  }
+
+  .primary-button,
+  .secondary-button {
+    padding: 10px 18px;
   }
 }
